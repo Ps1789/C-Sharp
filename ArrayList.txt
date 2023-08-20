@@ -1,0 +1,28 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ArrayList1
+{
+    public class Program
+    {
+       public static void Main(string[] args)
+        {
+            ArrayList myList = new ArrayList();
+            
+            myList.Add("Hello");
+            myList.Add("World");
+            myList.Add(1);
+            myList.Add(2);
+            myList.Add(3);
+
+            Console.WriteLine("Count : " + myList.Count);
+            Console.WriteLine("Capacity : " + myList.Capacity);
+            Console.ReadLine();
+        }
+    }
+}
+
