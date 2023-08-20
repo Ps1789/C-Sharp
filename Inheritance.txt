@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Inheritance
+{
+
+    public class Employee
+    {
+        public int EmpId;
+        public string EmpName;
+        public int EmpAge;
+        public int EmpContactNo;
+
+        public void show()
+        {
+            Console.WriteLine("This is a base class");
+        }
+    }
+    public class VisitingEmployee : Employee
+    {
+        public int visitingSalary;
+        public int visitingHours;
+    }
+
+    public class PermanentEmployee : Employee
+    {
+        public int permanentSalary;
+        public int permanentHours;
+    }
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            PermanentEmployee p = new PermanentEmployee();
+            p.show();
+            p.EmpId = 1;
+            VisitingEmployee v = new VisitingEmployee();
+            v.EmpId = 2;
+            Console.WriteLine(p.EmpId);
+            Console.WriteLine(v.EmpId);
+            Console.ReadLine();
+        }
+    }
+}

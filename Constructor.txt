@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Constructor
+{
+    public class Program
+    {
+
+        public Program()
+        {
+            Console.WriteLine("Constructor invoke");
+        }
+        public static void Main(string[] args)
+        {
+            Program p = new Program();
+            Console.ReadLine();
+        }
+    }
+}

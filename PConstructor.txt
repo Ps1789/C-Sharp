@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pconstructor
+{
+    public class Program
+    {
+        int ID;
+        string name;
+        int Age;
+
+        public Program(int a ,string b , int c)
+        {
+            this.ID = a;
+            this.name = b;
+            this.Age = c;
+        }
+        public int getd()
+        {
+           return  this.ID;
+        }
+        public string gete()
+        {
+            return this.name;
+        }
+        public int getf()
+        {
+            return this.Age;
+        }
+       public static void Main(string[] args)
+        {
+            Program p = new Program(1,"p",1);
+            Console.WriteLine(p.getd());
+            Console.WriteLine(p.gete());
+            Console.WriteLine(p.getf());
+            Console.ReadLine();
+        }
+    }
+}

@@ -1,0 +1,66 @@
+Create database BusTicket
+CREATE TABLE Passengers (
+    passenger_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100),
+    phone_number VARCHAR(20),
+    date_of_birth DATE,
+	createdOn DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create Buses table
+CREATE TABLE Buses (
+    bus_id INT PRIMARY KEY,
+    bus_number VARCHAR(20),
+    capacity INT,
+	createdOn DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create Routes table
+CREATE TABLE Routes (
+    route_id INT PRIMARY KEY,
+    route_name VARCHAR(50),
+    origin VARCHAR(100),
+    destination VARCHAR(100),
+    distance DECIMAL(8, 2),
+	createdOn DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create Tickets table
+CREATE TABLE Tickets (
+    ticket_id INT PRIMARY KEY,
+    passenger_id INT,
+    bus_id INT,
+    route_id INT,
+    seat_number VARCHAR(10),
+    fare DECIMAL(8, 2),
+    purchase_date DATETIME,
+	createdOn DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (passenger_id) REFERENCES Passengers(passenger_id),
+    FOREIGN KEY (bus_id) REFERENCES Buses(bus_id),
+    FOREIGN KEY (route_id) REFERENCES Routes(route_id)
+);
+
+-- Create TicketCancellations table
+CREATE TABLE TicketCancellations (
+    cancellation_id INT PRIMARY KEY,
+    ticket_id INT,
+    cancellation_date DATETIME,
+    refund_amount DECIMAL(8, 2),
+	createdOn DATETIME DEFAULT CURRENT_TIMESTAMP
+    FOREIGN KEY (ticket_id) REFERENCES Tickets(ticket_id)
+);
+
+SELECT
+    Passengers.first_name,
+    Passengers.last_name,
+    Buses.bus_number,
+    Routes.route_name,
+    Tickets.seat_number,
+    Tickets.fare
+FROM
+    Tickets
+INNER JOIN Passengers ON Tickets.passenger_id = Passengers.passenger_id
+INNER JOIN Buses ON Tickets.bus_id = Buses.bus_id
+INNER JOIN Routes ON Tickets.route_id = Routes.route_id;

@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConstructorOverloading
+{
+    public class Program
+    {
+        public Program()
+        {
+            Console.WriteLine("This is the First Constructor ");
+        }
+        public Program(int a , int b)
+        {
+            Console.WriteLine("This is the Second Constructor {0}", a + b);
+        }
+        public Program(int a , int b , int c)
+        {
+            Console.WriteLine("This is the Third Constructor {0}", a + b + c);
+        }
+      public static void Main(string[] args)
+        {
+            Program p = new Program();
+            Program p1 = new Program(1, 2);
+            Program p2 = new Program(1, 2, 3);
+            Console.ReadLine();
+        }
+    }
+}
